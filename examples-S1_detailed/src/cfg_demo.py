@@ -20,13 +20,12 @@ cfg = specs.SimConfig()
 #
 #------------------------------------------------------------------------------
 
-cfg.simType='gridTHS1'
 cfg.coreneuron = False
 
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 0.5*1e3 ## Duration of the src, in ms
+cfg.duration = 0.1*1e3 ## Duration of the src, in ms
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322, 'cell': 4322}
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -149,7 +148,7 @@ cfg.recordStep = 0.1
 # Saving
 #------------------------------------------------------------------------------
 cfg.simLabel = 'demo'
-cfg.saveFolder = os.getcwd()+'/data/' + cfg.simLabel
+cfg.saveFolder = 'data/' + cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file

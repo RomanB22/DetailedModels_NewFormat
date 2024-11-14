@@ -20,7 +20,6 @@ cfg = specs.SimConfig()
 #
 #------------------------------------------------------------------------------
 
-cfg.simType='gridTHS1'
 cfg.coreneuron = True
 
 #------------------------------------------------------------------------------
@@ -149,7 +148,7 @@ cfg.recordStep = 0.1
 # Saving
 #------------------------------------------------------------------------------
 cfg.simLabel = 'v0_batch0'
-cfg.saveFolder = os.getcwd()+'/data/'+cfg.simLabel
+cfg.saveFolder = 'data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file

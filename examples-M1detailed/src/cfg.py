@@ -19,8 +19,8 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 0.5*1e3
-cfg.dt = 0.05
+cfg.duration = 0.1*1e3
+cfg.dt = 0.025
 cfg.seeds = {'conn': 4321, 'stim': 1234, 'loc': 4321}
 cfg.hParams = {'celsius': 34, 'v_init': -80}
 cfg.coreneuron = False # run via coreneuron (alpha support)
@@ -54,7 +54,8 @@ cfg.recordStep = 0.1
 # Saving
 #------------------------------------------------------------------------------
 cfg.simLabel = 'M1detailed'
-cfg.saveFolder = os.getcwd()+'/data/'
+cfg.rootFolder = os.getcwd()
+cfg.saveFolder = 'data/'+cfg.simLabel
 cfg.savePickle = False
 cfg.saveJson = True
 cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net']
@@ -67,12 +68,12 @@ cfg.saveCellConns = True
 # Analysis and plotting
 #------------------------------------------------------------------------------
 with open('cells/popColors.pkl', 'rb') as fileObj: popColors = pickle.load(fileObj)['popColors']
-cfg.analysis['plotTraces'] = {'include': [('IT5A',0), ('PT5B',00)], 'timeRange': [0,500], 'oneFigPer': 'cell', 'figSize': (10,4), 'saveFig': True, 'showFig': False}
+cfg.analysis['plotTraces'] = {'include': [('IT5A',0), ('PT5B',00)], 'timeRange': [0,cfg.duration], 'oneFigPer': 'cell', 'figSize': (10,4), 'saveFig': True, 'showFig': False}
 
 cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'popRates': True, 'orderInverse': True,
-							'timeRange': [0,500], 'popColors': popColors, 'figSize': (6,6), 'lw': 0.3, 'markerSize':10, 'marker': '.', 'dpi': 300}
+							'timeRange': [0,cfg.duration], 'popColors': popColors, 'figSize': (6,6), 'lw': 0.3, 'markerSize':10, 'marker': '.', 'dpi': 300}
 
-cfg.analysis['plotSpikeHist'] = {'include': ['IT2','IT4','IT5A','IT5B','PT5B','IT6','CT6'], 'timeRange': [0,500],
+cfg.analysis['plotSpikeHist'] = {'include': ['IT2','IT4','IT5A','IT5B','PT5B','IT6','CT6'], 'timeRange': [0,cfg.duration],
 								'saveFig': True, 'showFig': False, 'popColors': popColors, 'figSize': (10,4), 'dpi': 300}
 
 cfg.analysis['plotConn'] = {'includePre': ['IT2','IT4','IT5A','IT5B','PT5B','IT6','CT6'], 'includePost': ['IT2','IT4','IT5A','IT5B','PT5B','IT6','CT6'], 'feature': 'strength', 'figSize': (10,10), 'groupBy': 'pop', \
