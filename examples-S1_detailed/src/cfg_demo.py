@@ -149,7 +149,7 @@ cfg.recordStep = 0.1
 # Saving
 #------------------------------------------------------------------------------
 cfg.simLabel = 'demo'
-cfg.saveFolder = 'data/' + cfg.simLabel
+cfg.saveFolder = os.getcwd()+'/data/' + cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file
