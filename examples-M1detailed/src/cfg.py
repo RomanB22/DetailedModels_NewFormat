@@ -6,6 +6,7 @@ Simulation configuration for M1 model (using NetPyNE)
 
 from netpyne import specs
 import pickle
+import os
 
 cfg = specs.SimConfig()
 
@@ -53,7 +54,7 @@ cfg.recordStep = 0.1
 # Saving
 #------------------------------------------------------------------------------
 cfg.simLabel = 'M1detailed'
-cfg.saveFolder = '.'
+cfg.saveFolder = os.getcwd()+'/data/'
 cfg.savePickle = False
 cfg.saveJson = True
 cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net']
