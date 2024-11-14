@@ -10,6 +10,7 @@ Contributors: ericaygriffith@gmail.com, salvadordura@gmail.com
 
 from netpyne import specs
 import pickle
+import os
 
 cfg = specs.SimConfig()
 
@@ -69,7 +70,7 @@ cfg.recordLFP = [[x, 1000, 100] for x in range(100, 2200, 200)]
 #------------------------------------------------------------------------------
 
 cfg.simLabel = 'demo' 
-cfg.saveFolder = 'data/demo/'                	## Set file output name
+cfg.saveFolder = os.getcwd()+'/data/demo/'
 cfg.savePickle = True         	## Save pkl file
 cfg.saveJson = False           	## Save json file
 cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] 
